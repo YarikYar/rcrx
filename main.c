@@ -54,11 +54,10 @@ int main(void)
 	TIM3->CCR3 = 1500;
 	TIM3->CCR4 = 1500;
 	
-		spi_init(SPI_CR1_MODE_0, SPI_CR1_PSC_16, SPI_CR1_DIR_2FD);
+	spi_init(SPI_CR1_MODE_0, SPI_CR1_PSC_16, SPI_CR1_DIR_2FD);
 
 	GPIOA_BSRR |= GPIO_BSRR_4_R;
-
-		GPIOA_BSRR |= GPIO_BSRR_3_R;
+	GPIOA_BSRR |= GPIO_BSRR_3_R;
 		spi_send_recv(FLUSH_RX);
 		GPIOA_BSRR |= GPIO_BSRR_3_S;
 		nrf_writereg(STATUS,0x70);
